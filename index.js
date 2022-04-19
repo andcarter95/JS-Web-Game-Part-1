@@ -1,24 +1,32 @@
-function newImage(imgName, imgSrc, imgPosition, imgHorz, imgVert) {
+function newImage(imgSrc, imgHorz, imgVert) {
     let imgName = document.createElement('img')
     imgName.src = imgSrc
-    imgName.style.position = imgPosition
-    imgName.style.left = imgHorz
-    imgName.style.bottom = imgVert
+    imgName.style.position = 'Fixed'
+    imgName.style.left = imgHorz + 'px'
+    imgName.style.bottom = imgVert +'px'
     document.body.append(imgName)
     return imgName
 }
 
-newImage(greenCharacter, assets/green-Character.gif, fixed, 100px, 100px);
+function newItem(imgSrc, imgHorz, imgVert) {
+    let imgName = newImage(imgSrc, imgHorz, imgVert)
 
-newImage(pineTree, 'assets/pine-tree.png', 'fixed', '450px', '200px');
+    imgName.addEventListener('dblclick', () => {
+        imgName.remove()
+    })
+}
 
-newImage(greenTree, 'assets/tree.png', 'fixed', '200px', '300px');
+newImage('assets/green-Character.gif', 100, 100);
 
-newImage(pillar, 'assets/pillar.png', 'fixed', '350px', '100px');
+newImage('assets/pine-tree.png', 450, 200);
 
-newImage(crate, 'assets/crate.png', 'fixed', '150px', '200px');
+newImage('assets/tree.png', 200, 300);
 
-newImage(well, 'assets/well.png', 'fixed', '500px', '425px')
+newImage('assets/pillar.png', 350, 100);
+
+newImage('assets/crate.png', 150, 200);
+
+newImage('assets/well.png', 500, 425)
 
 
 // let greenCharacter = document.createElement('img')
